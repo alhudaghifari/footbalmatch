@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/linlayItemScheduleMatch"
+    android:paddingTop="5dp"
+    android:paddingBottom="5dp"
+    android:elevation="4dp"
+    android:background="@drawable/rounded_full_white"
+    android:layout_marginLeft="5dp"
+    android:layout_marginRight="5dp"
+    android:layout_marginTop="3dp"
+    android:orientation="vertical">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/tvTanggalMain"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Minggu, 2 Oktober 2018"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:layout_centerHorizontal="true"
+            android:textColor="@color/blueDarkSweetie"
+            android:layout_gravity="center_horizontal"/>
+
+        <ImageView
+            android:id="@+id/ivNotification"
+            android:layout_width="26dp"
+            android:layout_height="26dp"
+            android:visibility="gone"
+            android:layout_marginRight="12dp"
+            android:layout_alignParentRight="true"
+            android:src="@drawable/ic_notifications_none_blue"/>
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_weight="1">
+
+            <ImageView
+                android:id="@+id/ivLogoTimKiri"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:src="@drawable/icon_soccer"/>
+
+            <TextView
+                android:id="@+id/tvNamaTimKiri"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Manchester United"
+                android:textSize="16sp"
+                android:layout_marginTop="5dp"
+                android:gravity="center_horizontal"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_weight="1">
+
+            <TextView
+                android:id="@+id/tvJamMain"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="12.00"
+                android:textColor="@color/blueDarkSweetie"
+                android:textSize="15sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="3dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/tvScoreTimKiri"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="5"
+                    android:gravity="center_horizontal"
+                    android:textStyle="bold"
+                    android:layout_weight="1"
+                    android:textSize="20sp"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="vs"
+                    android:textSize="16sp"
+                    android:gravity="center_horizontal"
+                    android:layout_weight="1"
+                    android:layout_alignParentLeft="true"/>
+
+                <TextView
+                    android:id="@+id/tvScoreTimKanan"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="1"
+                    android:gravity="center_horizontal"
+                    android:textStyle="bold"
+                    android:layout_weight="1"
+                    android:textSize="20sp"
+                    android:layout_alignParentLeft="true"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_weight="1">
+
+            <ImageView
+                android:id="@+id/ivLogoTimKanan"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:src="@drawable/icon_soccer"/>
+
+            <TextView
+                android:id="@+id/tvNamaTimKanan"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Chelsea"
+                android:textSize="16sp"
+                android:layout_marginTop="5dp"
+                android:gravity="center_horizontal"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>
