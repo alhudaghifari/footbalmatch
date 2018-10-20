@@ -15,9 +15,9 @@ import android.util.Log
 import android.view.*
 import android.view.MenuInflater
 
-
-
-
+/**
+ * Created by alhudaghifari
+ */
 class MatchFragment : Fragment() {
 
     private val TAG = MatchFragment::class.java.simpleName
