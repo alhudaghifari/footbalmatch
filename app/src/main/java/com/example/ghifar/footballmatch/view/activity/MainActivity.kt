@@ -7,6 +7,7 @@ import com.example.ghifar.footballmatch.R
 import com.example.ghifar.footballmatch.view.fragment.FavoriteMatchFragment
 import com.example.ghifar.footballmatch.view.fragment.MatchFragment
 import com.example.ghifar.footballmatch.view.fragment.NextMatchFragment
+import com.example.ghifar.footballmatch.view.fragment.TeamsFragment
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -22,11 +23,11 @@ class MainActivity : AppCompatActivity() {
 
                 return@OnNavigationItemSelectedListener true
             }
-            R.id.navigation_next_match -> {
-                supportActionBar?.title = resources.getString(R.string.title_next_match)
+            R.id.navigation_teams -> {
+                supportActionBar?.title = resources.getString(R.string.title_teams)
                 supportFragmentManager
                         .beginTransaction()
-                        .replace(R.id.root_layout, NextMatchFragment(), resources.getString(R.string.title_next_match))
+                        .replace(R.id.root_layout, TeamsFragment(), resources.getString(R.string.title_teams))
                         .commit()
                 return@OnNavigationItemSelectedListener true
             }

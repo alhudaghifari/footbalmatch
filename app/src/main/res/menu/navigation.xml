@@ -7,8 +7,8 @@
         android:title="@string/title_matches" />
 
     <item
-        android:id="@+id/navigation_next_match"
-        android:icon="@drawable/ic_date_range_black_24dp"
+        android:id="@+id/navigation_teams"
+        android:icon="@drawable/ic_ball"
         android:title="@string/title_next_match" />
 
     <item
