@@ -8,7 +8,6 @@
     android:background="@color/silveryoung"
     tools:context=".view.fragment.TeamsFragment">
 
-
     <android.support.v7.widget.Toolbar
         android:id="@+id/my_toolbar"
         android:layout_width="match_parent"
@@ -21,11 +20,16 @@
     <Spinner
         android:id="@+id/spinnerTeams"
         android:layout_width="match_parent"
-        android:layout_height="48dp"
+        android:layout_height="52dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
         />
 
     <android.support.v4.widget.SwipeRefreshLayout
         android:id="@+id/swiperefresh"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
