@@ -17,6 +17,7 @@ import com.example.ghifar.footballmatch.R
 import com.example.ghifar.footballmatch.R.id.ivLogoTimKanan
 import com.example.ghifar.footballmatch.model.eventleaguemodel.Event
 import com.example.ghifar.footballmatch.presenter.Constant
+import com.example.ghifar.footballmatch.presenter.Utils
 import kotlinx.android.synthetic.main.activity_detail_match.*
 import java.text.SimpleDateFormat
 import java.util.*
@@ -34,6 +35,8 @@ class MatchAdapter(internal var data: List<Event>, internal var context: Context
     private var mOnArtikelClickListener: OnArtikelClickListener? = null
     private var mOnNotificationClickListener: OnNotificationClickListener? = null
 
+    private var utils = Utils()
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ArtikelViewHolder {
         Log.d(TAG, "onCreateViewHolder")
         val view = LayoutInflater.from(context)
@@ -47,24 +50,10 @@ class MatchAdapter(internal var data: List<Event>, internal var context: Context
         val artikel = data[position]
         val strTime = artikel.strTime?.substring(0, 8)
 
-        Log.d(TAG, "strTime : $strTime");
+        val formattedClock = utils.getClock(strTime)
+        val dateIndo = utils.getDate(artikel.dateEvent)
 
-        // clock parser
-        val clock = SimpleDateFormat("HH:mm:ss", Locale.ENGLISH)
-        clock.setTimeZone(TimeZone.getTimeZone("UTC"))
-        val strTimeParsed = clock.parse(strTime)
-        clock.setTimeZone(TimeZone.getDefault())
-        val formattedClock = clock.format(strTimeParsed)
-
-        // date parser
-        val df = SimpleDateFormat("yyyy-MM-dd", Locale.ENGLISH)
-        df.setTimeZone(TimeZone.getTimeZone("UTC"))
-        val date = df.parse(artikel.dateEvent)
-        df.setTimeZone(TimeZone.getDefault())
-        val daterr = SimpleDateFormat("yyyy-M-dd").parse(df.format(date))
-        val dateIndo = SimpleDateFormat("EEE, dd MMM yyyy", Locale.ENGLISH).format(daterr)
-
-        Log.d(TAG, "dateIndo : $dateIndo")
+        Log.d(TAG, "dateIndo : $dateIndo, $formattedClock")
 
         holder.tvTanggalMain.text = dateIndo
         holder.tvJamMain.text = formattedClock
