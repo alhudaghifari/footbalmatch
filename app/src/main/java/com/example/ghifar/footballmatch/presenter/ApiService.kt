@@ -3,6 +3,7 @@ package com.example.ghifar.footballmatch.presenter
 import com.example.ghifar.footballmatch.model.datateammodel.DetailTeamModel
 import com.example.ghifar.footballmatch.model.eventleaguemodel.DetailEventModel
 import com.example.ghifar.footballmatch.model.eventleaguemodel.EventLeagueModel
+import com.example.ghifar.footballmatch.model.listteammodel.ListTeamModel
 import io.reactivex.Observable
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
@@ -28,6 +29,10 @@ interface ApiService {
 
     @GET("lookupteam.php")
     fun getDetailTeamById(@Query("id") id: String): Observable<DetailTeamModel>
+
+    //https://www.thesportsdb.com/api/v1/json/1/search_all_teams.php?l=English%20Premier%20League
+    @GET("search_all_teams.php")
+    fun getListTeamByLeagueName(@Query("l") leagueName: String): Observable<ListTeamModel>
 
     companion object {
         fun create(): ApiService {
