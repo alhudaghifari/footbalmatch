@@ -10,7 +10,7 @@
         android:allowBackup="true"
         android:icon="@drawable/icon_soccer"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@mipmap/icon_apps"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
@@ -25,9 +25,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".view.activity.DetailMatchActivity" />
-        <activity android:name=".view.activity.SearchActivity" />
-        <activity android:name=".view.activity.TeamDetailActivity"></activity>
+        <activity android:name=".view.activity.DetailMatchActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".view.activity.SearchActivity"
+            android:screenOrientation="portrait" />
+        <activity android:name=".view.activity.TeamDetailActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar"/>
     </application>
 
 </manifest>
