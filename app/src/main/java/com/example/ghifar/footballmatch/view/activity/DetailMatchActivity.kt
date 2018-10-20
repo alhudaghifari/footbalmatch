@@ -123,8 +123,10 @@ class DetailMatchActivity : AppCompatActivity(), DetailMatchInterface {
     private fun initiateViewData() {
         setLoading(false)
 
-        tvTanggalMain.text = dataDetailEvent.dateEvent
-        tvJamMain.text = dataDetailEvent.strTime?.substring(0, 8)
+        var utils = Utils()
+
+        tvTanggalMain.text = utils.getDate(dataDetailEvent.dateEvent)
+        tvJamMain.text = utils.getClock(dataDetailEvent.strTime?.substring(0, 8))
 
         tvNamaTimKiri.text = dataDetailEvent.strHomeTeam
         tvNamaTimKanan.text = dataDetailEvent.strAwayTeam
