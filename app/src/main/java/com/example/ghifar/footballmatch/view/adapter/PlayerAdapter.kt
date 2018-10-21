@@ -53,7 +53,6 @@ class PlayerAdapter(internal var data: List<Player>, internal var context: Conte
                 }
             }, 250)
         }
-
     }
 
     override fun getItemCount(): Int {
