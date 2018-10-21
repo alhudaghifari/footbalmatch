@@ -31,4 +31,18 @@ class Utils {
         return dateIndo
     }
 
+    fun getHtmlStringFormat(desc: String?): String {
+        var description = ""
+        val styleOpening = "<html><body bgcolor=\"#e9e9e9\">" +
+                "<p style=\"" +
+                "line-height: 1.5;" +
+                "\" align=\"justify\">"
+        val styleClosing = "</p></body></html>"
+
+        description = styleOpening
+        description += desc
+        description += styleClosing
+        return description
+    }
+
 }
