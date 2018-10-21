@@ -1,4 +1,4 @@
-package com.example.ghifar.footballmatch.model.player
+package com.example.ghifar.footballmatch.model.playermodel
 
 
 /**
@@ -6,13 +6,11 @@ package com.example.ghifar.footballmatch.model.player
  *
  */
 
-import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
 
 class PlayerModel {
 
     @SerializedName("player")
-    @Expose
-    var player: List<Player>? = null
+    var player: List<Player> = mutableListOf()
 
 }
