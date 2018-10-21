@@ -1,7 +1,6 @@
 package com.example.ghifar.footballmatch.presenter.player
 
 import com.example.ghifar.footballmatch.presenter.ApiService
-import com.example.ghifar.footballmatch.presenter.teams.ListTeamsInterface
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.Disposable
 import io.reactivex.schedulers.Schedulers
@@ -24,14 +23,15 @@ class PlayersPresenter (private val view: PlayersInterface) {
         disposable?.dispose()
     }
 
-    fun getListPlayerByTeamName(leagueName: String) {
+    fun getListPlayerByTeamName(teamName: String) {
         view.showLoading()
-        disposable = footballApiService.getListPlayerByTeamName(leagueName)
+        disposable = footballApiService.getListPlayerByTeamName(teamName)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(
                         { result ->
                             view.showTeamList(result.player)
+                            view.hideLoading()
                         },
                         { error ->
                             view.showError(error.message + " 1")
