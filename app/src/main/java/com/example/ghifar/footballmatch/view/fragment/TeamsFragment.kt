@@ -115,7 +115,7 @@ class TeamsFragment : Fragment(), ListTeamsInterface {
     private fun setRecyclerView() {
         adapter = TeamsAdapter(context!!, teams) {
             Log.d(TAG, "tes teamsadapter")
-            ctx.startActivity<TeamDetailActivity>("id" to "${it.idTeam}")
+            ctx.startActivity<TeamDetailActivity>("id" to "${it.idTeam}", "teamName" to "${it.strTeam}")
         }
         recyclerListTeam.layoutManager = LinearLayoutManager(context)
         recyclerListTeam.adapter = adapter
