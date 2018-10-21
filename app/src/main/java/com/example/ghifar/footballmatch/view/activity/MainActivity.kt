@@ -12,32 +12,47 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
-    private val mOnNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
+    private val PAGE_MATCH = 0
+    private val PAGE_TEAM = 1
+    private val PAGE_FAVORITE = 2
+
+    private var pageSelected = PAGE_MATCH
+
+    private val mOnNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener {
+        item ->
         when (item.itemId) {
             R.id.navigation_matches -> {
-                supportActionBar?.title = resources.getString(R.string.title_matches)
-                supportFragmentManager
-                        .beginTransaction()
-                        .replace(R.id.root_layout, MatchFragment(), resources.getString(R.string.title_matches))
-                        .commit()
-
-                return@OnNavigationItemSelectedListener true
+                if (pageSelected != PAGE_MATCH) {
+                    supportActionBar?.title = resources.getString(R.string.title_matches)
+                    supportFragmentManager
+                            .beginTransaction()
+                            .replace(R.id.root_layout, MatchFragment(), resources.getString(R.string.title_matches))
+                            .commit()
+                    pageSelected = PAGE_MATCH
+                    return@OnNavigationItemSelectedListener true
+                }
             }
             R.id.navigation_teams -> {
-                supportActionBar?.title = resources.getString(R.string.title_teams)
-                supportFragmentManager
-                        .beginTransaction()
-                        .replace(R.id.root_layout, TeamsFragment(), resources.getString(R.string.title_teams))
-                        .commit()
-                return@OnNavigationItemSelectedListener true
+                if (pageSelected != PAGE_TEAM) {
+                    supportActionBar?.title = resources.getString(R.string.title_teams)
+                    supportFragmentManager
+                            .beginTransaction()
+                            .replace(R.id.root_layout, TeamsFragment(), resources.getString(R.string.title_teams))
+                            .commit()
+                    pageSelected = PAGE_TEAM
+                    return@OnNavigationItemSelectedListener true
+                }
             }
             R.id.navigation_favorites_match -> {
-                supportActionBar?.title = resources.getString(R.string.favoritematch)
-                supportFragmentManager
-                        .beginTransaction()
-                        .replace(R.id.root_layout, FavoriteMatchFragment(), resources.getString(R.string.favoritematch))
-                        .commit()
-                return@OnNavigationItemSelectedListener true
+                if (pageSelected != PAGE_FAVORITE) {
+                    supportActionBar?.title = resources.getString(R.string.favoritematch)
+                    supportFragmentManager
+                            .beginTransaction()
+                            .replace(R.id.root_layout, FavoriteMatchFragment(), resources.getString(R.string.favoritematch))
+                            .commit()
+                    pageSelected = PAGE_FAVORITE
+                    return@OnNavigationItemSelectedListener true
+                }
             }
         }
         false
