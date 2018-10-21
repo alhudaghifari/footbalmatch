@@ -3,12 +3,20 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/rellayHolder"
     android:layout_width="match_parent"
-    android:layout_height="98dp">
+    android:layout_height="98dp"
+    android:paddingTop="5dp"
+    android:paddingBottom="5dp"
+    android:elevation="4dp"
+    android:background="@drawable/rounded_full_white"
+    android:layout_marginLeft="5dp"
+    android:layout_marginRight="5dp"
+    android:layout_marginTop="6dp">
 
     <ImageView
         android:id="@+id/ivPhotoPlayer"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginLeft="10dp"
         android:layout_centerVertical="true"
         android:src="@mipmap/icon_apps"/>
 
@@ -19,7 +27,7 @@
         android:layout_centerVertical="true"
         android:layout_toRightOf="@id/ivPhotoPlayer"
         android:text="Player Name"
-        android:textSize="18sp"
+        android:textSize="16sp"
         android:textStyle="bold"
         android:layout_marginLeft="10dp"/>
 
@@ -29,8 +37,8 @@
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
         android:text="Position"
-        android:textSize="16sp"
+        android:textSize="14sp"
         android:layout_alignParentRight="true"
-        android:layout_marginRight="8dp"/>
+        android:layout_marginRight="15dp"/>
 
 </RelativeLayout>
