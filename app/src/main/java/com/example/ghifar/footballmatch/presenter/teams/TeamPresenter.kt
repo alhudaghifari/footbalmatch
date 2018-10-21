@@ -22,14 +22,15 @@ class TeamPresenter(private val view: TeamInterface) {
         disposable?.dispose()
     }
 
-    fun getDetailTeam(teamName: String) {
+    fun getDetailTeam(id: String) {
         view.showLoading()
-        disposable = footballApiService.getDetailTeamById(teamName)
+        disposable = footballApiService.getDetailTeamById(id)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(
                         { result ->
                             view.showTeamList(result.teams)
+                            view.hideLoading()
                         },
                         { error ->
                             view.showError(error.message + " 1")
