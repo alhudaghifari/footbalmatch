@@ -1,6 +1,5 @@
 package com.example.ghifar.footballmatch.view.activity
 
-import android.content.Intent
 import android.database.sqlite.SQLiteConstraintException
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
@@ -178,7 +177,7 @@ class DetailMatchActivity : AppCompatActivity(), DetailMatchInterface {
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        menuInflater.inflate(R.menu.detail_menu, menu)
+        menuInflater.inflate(R.menu.favorite_menu, menu)
         menuItem = menu
         setFavorite()
         return true
