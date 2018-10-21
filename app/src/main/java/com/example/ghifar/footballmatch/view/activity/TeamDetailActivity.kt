@@ -24,6 +24,7 @@ import com.example.ghifar.footballmatch.model.datateammodel.Team
 import com.example.ghifar.footballmatch.presenter.teams.TeamInterface
 import com.example.ghifar.footballmatch.presenter.teams.TeamPresenter
 import com.example.ghifar.footballmatch.view.fragment.OverviewTeamFragment
+import com.example.ghifar.footballmatch.view.fragment.PlayersFragment
 import com.example.ghifar.footballmatch.view.fragment.PrevMatchFragment
 import kotlinx.android.synthetic.main.activity_team_detail.*
 
@@ -37,6 +38,7 @@ class TeamDetailActivity : AppCompatActivity(), TeamInterface {
     private lateinit var tvCity: TextView
     private lateinit var presenter: TeamPresenter
     private lateinit var id: String
+    private var teamName: String = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -64,6 +66,7 @@ class TeamDetailActivity : AppCompatActivity(), TeamInterface {
 
         val intent = intent
         id = intent.getStringExtra("id")
+        teamName = intent.getStringExtra("teamName")
 
         presenter = TeamPresenter(this)
         presenter.getDetailTeam(id)
@@ -110,14 +113,18 @@ class TeamDetailActivity : AppCompatActivity(), TeamInterface {
         : FragmentStatePagerAdapter(fm) {
 
         override fun getItem(position: Int): Fragment? {
+            val bundle = Bundle()
             if (position == 0) {
-                val bundle = Bundle()
                 bundle.putString("id", id)
                 var overviewTeamFragment = OverviewTeamFragment()
                 overviewTeamFragment.arguments = bundle
                 return overviewTeamFragment
             } else if (position == 1) {
-                return PrevMatchFragment()
+                Log.d(TAG, "teamName : $teamName")
+                bundle.putString("teamName", teamName)
+                var playerFragment = PlayersFragment()
+                playerFragment.arguments = bundle
+                return playerFragment
             } else return null
         }
 
