@@ -9,7 +9,7 @@
     <item
         android:id="@+id/navigation_teams"
         android:icon="@drawable/ic_ball"
-        android:title="@string/title_next_match" />
+        android:title="@string/title_teams" />
 
     <item
         android:id="@+id/navigation_favorites_match"
