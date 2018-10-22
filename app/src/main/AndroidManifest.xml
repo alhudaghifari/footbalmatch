@@ -32,7 +32,7 @@
             android:name=".view.activity.SearchActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".view.activity.TeamDetailActivity"
+            android:name=".view.activity.DetailTeamActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".view.activity.PlayerDetailActivity"
