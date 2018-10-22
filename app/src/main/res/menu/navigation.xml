@@ -14,6 +14,6 @@
     <item
         android:id="@+id/navigation_favorites_match"
         android:icon="@drawable/ic_favorites"
-        android:title="@string/favoritematch" />
+        android:title="@string/favorites" />
 
 </menu>

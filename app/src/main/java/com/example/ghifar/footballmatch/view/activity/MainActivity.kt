@@ -4,10 +4,7 @@ import android.os.Bundle
 import android.support.design.widget.BottomNavigationView
 import android.support.v7.app.AppCompatActivity
 import com.example.ghifar.footballmatch.R
-import com.example.ghifar.footballmatch.view.fragment.FavoriteMatchFragment
-import com.example.ghifar.footballmatch.view.fragment.MatchFragment
-import com.example.ghifar.footballmatch.view.fragment.NextMatchFragment
-import com.example.ghifar.footballmatch.view.fragment.TeamsFragment
+import com.example.ghifar.footballmatch.view.fragment.*
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -45,10 +42,10 @@ class MainActivity : AppCompatActivity() {
             }
             R.id.navigation_favorites_match -> {
                 if (pageSelected != PAGE_FAVORITE) {
-                    supportActionBar?.title = resources.getString(R.string.favoritematch)
+                    supportActionBar?.title = resources.getString(R.string.favorites)
                     supportFragmentManager
                             .beginTransaction()
-                            .replace(R.id.root_layout, FavoriteMatchFragment(), resources.getString(R.string.favoritematch))
+                            .replace(R.id.root_layout, FavoriteFragment(), resources.getString(R.string.favorites))
                             .commit()
                     pageSelected = PAGE_FAVORITE
                     return@OnNavigationItemSelectedListener true
