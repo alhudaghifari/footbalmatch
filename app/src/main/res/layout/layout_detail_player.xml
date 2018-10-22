@@ -1,153 +1,138 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="@color/silveryoung">
+    android:background="@color/silveryoung"
+    android:orientation="vertical">
 
-    <!--<android.support.v4.widget.SwipeRefreshLayout-->
-        <!--android:id="@+id/swiperefresh"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="match_parent">-->
+    <!--weight and height info-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
 
-        <!--<LinearLayout-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="match_parent"-->
-            <!--android:orientation="vertical">-->
-
-            <!--weight and height info-->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical"
-                    android:layout_weight="1">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Weight (Kg)"
-                        android:textSize="16sp"
-                        android:textColor="@color/grey2"
-                        android:layout_gravity="center_horizontal"/>
-
-                    <TextView
-                        android:id="@+id/tvWeight"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="80.23"
-                        android:textSize="36sp"
-                        android:fontFamily="serif-monospace"
-                        android:textColor="@color/blackandblue1"
-                        android:layout_gravity="center_horizontal"/>
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical"
-                    android:layout_weight="1">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Height (m)"
-                        android:textSize="16sp"
-                        android:textColor="@color/grey2"
-                        android:layout_gravity="center_horizontal"/>
-
-                    <TextView
-                        android:id="@+id/tvHeight"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="1.86"
-                        android:textSize="36sp"
-                        android:fontFamily="serif-monospace"
-                        android:textColor="@color/blackandblue1"
-                        android:layout_gravity="center_horizontal"/>
-
-                </LinearLayout>
-
-            </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical">
 
             <TextView
-                android:id="@+id/tvPosition"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Position"
                 android:layout_gravity="center_horizontal"
-                android:textSize="20sp"
-                android:layout_marginTop="5dp"
-                android:textColor="@color/blackandblue0"/>
+                android:text="Weight (Kg)"
+                android:textColor="@color/grey2"
+                android:textSize="16sp" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
+            <TextView
+                android:id="@+id/tvWeight"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:gravity="center_horizontal"
-                android:orientation="horizontal">
+                android:fontFamily="serif-monospace"
+                android:text="80.23"
+                android:textColor="@color/blackandblue1"
+                android:textSize="36sp" />
 
-                <ImageView
-                    android:id="@+id/ivInstagram"
-                    android:layout_width="@dimen/icon_size"
-                    android:layout_height="@dimen/icon_size"
-                    android:visibility="gone"
-                    android:layout_marginRight="3dp"
-                    android:src="@drawable/ic_instagram"/>
+        </LinearLayout>
 
-                <ImageView
-                    android:id="@+id/ivTwitter"
-                    android:layout_width="@dimen/icon_size"
-                    android:layout_height="@dimen/icon_size"
-                    android:layout_marginLeft="3dp"
-                    android:layout_marginRight="3dp"
-                    android:visibility="gone"
-                    android:src="@drawable/ic_twitter"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical">
 
-                <ImageView
-                    android:id="@+id/ivYoutube"
-                    android:layout_width="@dimen/icon_size"
-                    android:layout_height="@dimen/icon_size"
-                    android:layout_marginLeft="3dp"
-                    android:layout_marginRight="3dp"
-                    android:visibility="gone"
-                    android:src="@drawable/ic_youtube"/>
-
-                <ImageView
-                    android:id="@+id/ivFacebook"
-                    android:layout_width="@dimen/icon_size"
-                    android:layout_height="@dimen/icon_size"
-                    android:visibility="gone"
-                    android:layout_marginLeft="3dp"
-                    android:src="@drawable/ic_facebook"/>
-
-            </LinearLayout>
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="2dp"
-                android:background="@color/grey"
-                android:layout_marginTop="10dp"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"/>
-
-            <WebView
-                android:id="@+id/wvDescription"
-                android:layout_width="match_parent"
+            <TextView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                />
+                android:layout_gravity="center_horizontal"
+                android:text="Height (m)"
+                android:textColor="@color/grey2"
+                android:textSize="16sp" />
 
-        <!--</LinearLayout>-->
+            <TextView
+                android:id="@+id/tvHeight"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:fontFamily="serif-monospace"
+                android:text="1.86"
+                android:textColor="@color/blackandblue1"
+                android:textSize="36sp" />
 
-    <!--</android.support.v4.widget.SwipeRefreshLayout>-->
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tvPosition"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="5dp"
+        android:text="Position"
+        android:textColor="@color/blackandblue0"
+        android:textSize="20sp" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="10dp"
+        android:background="@color/grey" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="15dp"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/ivInstagram"
+            android:layout_width="@dimen/icon_size"
+            android:layout_height="@dimen/icon_size"
+            android:layout_marginRight="3dp"
+            android:src="@drawable/ic_instagram"
+            android:visibility="gone" />
+
+        <ImageView
+            android:id="@+id/ivTwitter"
+            android:layout_width="@dimen/icon_size"
+            android:layout_height="@dimen/icon_size"
+            android:layout_marginLeft="3dp"
+            android:layout_marginRight="3dp"
+            android:src="@drawable/ic_twitter"
+            android:visibility="gone" />
+
+        <ImageView
+            android:id="@+id/ivYoutube"
+            android:layout_width="@dimen/icon_size"
+            android:layout_height="@dimen/icon_size"
+            android:layout_marginLeft="3dp"
+            android:layout_marginRight="3dp"
+            android:src="@drawable/ic_youtube"
+            android:visibility="gone" />
+
+        <ImageView
+            android:id="@+id/ivFacebook"
+            android:layout_width="@dimen/icon_size"
+            android:layout_height="@dimen/icon_size"
+            android:layout_marginLeft="3dp"
+            android:src="@drawable/ic_facebook"
+            android:visibility="gone" />
+
+    </LinearLayout>
+
+    <WebView
+        android:id="@+id/wvDescription"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="15dp" />
 
 </LinearLayout>
