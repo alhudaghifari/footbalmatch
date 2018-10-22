@@ -53,8 +53,8 @@ class MatchFragment : Fragment() {
         tabLayout.getTabAt(0)?.setText(resources.getString(R.string.title_next_match))
         tabLayout.getTabAt(1)?.setText(resources.getString(R.string.title_prev_match))
         tabLayout.setTabTextColors(
-                ContextCompat.getColor(context!!, R.color.white),
-                ContextCompat.getColor(context!!, R.color.silveryoung)
+                ContextCompat.getColor(context!!, R.color.silveryoung),
+                ContextCompat.getColor(context!!, R.color.white)
         )
         tabLayout.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
 
