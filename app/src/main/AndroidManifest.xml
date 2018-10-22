@@ -35,7 +35,8 @@
             android:name=".view.activity.TeamDetailActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".view.activity.PlayerDetailActivity"></activity>
+        <activity android:name=".view.activity.PlayerDetailActivity"
+            android:screenOrientation="portrait"/>
     </application>
 
 </manifest>
