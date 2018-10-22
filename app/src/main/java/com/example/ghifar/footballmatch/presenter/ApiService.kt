@@ -4,6 +4,7 @@ import com.example.ghifar.footballmatch.model.datateammodel.DetailTeamModel
 import com.example.ghifar.footballmatch.model.eventleaguemodel.DetailEventModel
 import com.example.ghifar.footballmatch.model.eventleaguemodel.EventLeagueModel
 import com.example.ghifar.footballmatch.model.listteammodel.ListTeamModel
+import com.example.ghifar.footballmatch.model.playermodel.OnePlayerModel
 import com.example.ghifar.footballmatch.model.playermodel.PlayerModel
 import io.reactivex.Observable
 import retrofit2.Retrofit
@@ -36,6 +37,9 @@ interface ApiService {
 
     @GET("searchplayers.php")
     fun getListPlayerByTeamName(@Query("t") teamName: String): Observable<PlayerModel>
+
+    @GET("lookupplayer.php")
+    fun getDetailPlayerById(@Query("id") id: String): Observable<OnePlayerModel>
 
     companion object {
         fun create(): ApiService {
