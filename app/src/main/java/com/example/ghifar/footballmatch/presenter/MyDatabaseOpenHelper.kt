@@ -3,6 +3,7 @@ package com.example.ghifar.footballmatch.presenter
 import android.content.Context
 import android.database.sqlite.SQLiteDatabase
 import com.example.ghifar.footballmatch.model.database.EventDb
+import com.example.ghifar.footballmatch.model.database.TeamDb
 import org.jetbrains.anko.db.*
 
 
@@ -38,11 +39,18 @@ class MyDatabaseOpenHelper(ctx: Context) : ManagedSQLiteOpenHelper(ctx, "Favorit
                 EventDb.STR_TIME to TEXT,
                 EventDb.STR_HOME_BADGE to TEXT,
                 EventDb.STR_AWAY_BADGE to TEXT)
+
+        db.createTable(TeamDb.TABLE_FAVORITE_TEAM, true,
+                TeamDb.ID to INTEGER + PRIMARY_KEY + AUTOINCREMENT,
+                TeamDb.ID_TEAM to TEXT + UNIQUE,
+                TeamDb.STR_TEAM to TEXT,
+                TeamDb.STR_TEAM_BADGE to TEXT)
     }
 
     override fun onUpgrade(db: SQLiteDatabase, oldVersion: Int, newVersion: Int) {
         // Here you can upgrade tables, as usual
         db.dropTable(EventDb.TABLE_FAVORITE_MATCH, true)
+        db.dropTable(TeamDb.TABLE_FAVORITE_TEAM, true)
     }
 }
 
