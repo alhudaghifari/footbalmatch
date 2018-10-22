@@ -35,6 +35,7 @@ class MyDatabaseOpenHelper(ctx: Context) : ManagedSQLiteOpenHelper(ctx, "Favorit
                 EventDb.INT_HOME_SCORE to TEXT,
                 EventDb.INT_AWAY_SCORE to TEXT,
                 EventDb.DATE_EVENT to TEXT,
+                EventDb.STR_TIME to TEXT,
                 EventDb.STR_HOME_BADGE to TEXT,
                 EventDb.STR_AWAY_BADGE to TEXT)
     }
