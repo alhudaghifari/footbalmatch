@@ -39,7 +39,6 @@ class FavoriteMatchFragment : Fragment() {
     private lateinit var swiperefresh: SwipeRefreshLayout
     private lateinit var adapter: MatchAdapter
     private lateinit var onArtikelClickListener: MatchAdapter.OnArtikelClickListener
-    private lateinit var myToolbar: Toolbar
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
@@ -48,13 +47,6 @@ class FavoriteMatchFragment : Fragment() {
 
         recyclerListTeam = v.findViewById(R.id.recyclerListTeam)
         swiperefresh = v.findViewById(R.id.swiperefresh)
-        myToolbar = v.findViewById(R.id.my_toolbar)
-
-        // setup toolbar
-        myToolbar.setBackgroundColor(resources.getColor(R.color.colorPrimary))
-        myToolbar.setTitleTextColor(resources.getColor(R.color.white))
-        myToolbar.setTitle(resources.getString(R.string.favorites))
-        (activity as AppCompatActivity).setSupportActionBar(myToolbar)
 
         listenerFunction()
         showFavorite()
