@@ -4,6 +4,7 @@
     <string name="favorites">Favorite</string>
     <string name="favoritematch">Favorite Match</string>
     <string name="search">Search</string>
+    <string name="refresh">Refresh</string>
 
     <string name="title_prev_match">Prev Match</string>
     <string name="title_next_match">Next Match</string>
