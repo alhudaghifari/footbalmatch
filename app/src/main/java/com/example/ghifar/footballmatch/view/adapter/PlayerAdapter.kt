@@ -39,7 +39,7 @@ class PlayerAdapter(internal var data: List<Player>, internal var context: Conte
                                   position: Int) {
         val artikel = data[position]
         Glide.with(context!!)
-                .load(artikel.strThumb)
+                .load(artikel.strCutout)
                 .into(holder.ivPhotoPlayer)
         holder.tvPlayerName.text = artikel.strPlayer
         holder.tvPosition.text = artikel.strPosition
