@@ -13,6 +13,7 @@ data class EventDb(val id: Long?,
                 val INT_HOME_SCORE: String?,
                 val INT_AWAY_SCORE: String?,
                 val DATE_EVENT: String?,
+                val STR_TIME: String?,
                 val STR_HOME_BADGE: String?,
                 val STR_AWAY_BADGE: String?) {
 
@@ -27,6 +28,7 @@ data class EventDb(val id: Long?,
         const val INT_HOME_SCORE: String = "INTHOMESCORE"
         const val INT_AWAY_SCORE: String = "INTAWAYSCORE"
         const val DATE_EVENT: String = "DATEEVENT"
+        const val STR_TIME: String = "STRTIME"
         const val STR_HOME_BADGE: String = "STRHOMEBADGE"
         const val STR_AWAY_BADGE: String = "STRAWAYBADGE"
     }

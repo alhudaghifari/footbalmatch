@@ -223,6 +223,7 @@ class DetailMatchActivity : AppCompatActivity(), DetailMatchInterface {
                         EventDb.INT_HOME_SCORE to homescore,
                         EventDb.INT_AWAY_SCORE to awayscore,
                         EventDb.DATE_EVENT to dataDetailEvent.dateEvent,
+                        EventDb.STR_TIME to dataDetailEvent.strTime,
                         EventDb.STR_HOME_BADGE to homeTeams[0].strTeamBadge,
                         EventDb.STR_AWAY_BADGE to awayTeams[0].strTeamBadge)
             }

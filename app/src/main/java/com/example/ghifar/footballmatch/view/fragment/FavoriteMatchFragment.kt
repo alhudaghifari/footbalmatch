@@ -76,6 +76,7 @@ class FavoriteMatchFragment : Fragment() {
                 event.idHomeTeam = index.ID_HOME_TEAM
                 event.idAwayTeam = index.ID_AWAY_TEAM
                 event.dateEvent = index.DATE_EVENT
+                event.strTime = index.STR_TIME
                 event.strHomeTeam = index.STR_HOME_TEAM
                 event.strAwayTeam = index.STR_AWAY_TEAM
                 event.intHomeScore = index.INT_HOME_SCORE
