@@ -18,7 +18,7 @@ import com.example.ghifar.footballmatch.R.array.league
 import com.example.ghifar.footballmatch.model.datateammodel.Team
 import com.example.ghifar.footballmatch.presenter.teams.ListTeamsInterface
 import com.example.ghifar.footballmatch.presenter.teams.ListTeamsPresenter
-import com.example.ghifar.footballmatch.view.activity.TeamDetailActivity
+import com.example.ghifar.footballmatch.view.activity.DetailTeamActivity
 import com.example.ghifar.footballmatch.view.adapter.TeamsAdapter
 import org.jetbrains.anko.startActivity
 import org.jetbrains.anko.support.v4.ctx
@@ -115,7 +115,7 @@ class TeamsFragment : Fragment(), ListTeamsInterface {
     private fun setRecyclerView() {
         adapter = TeamsAdapter(context!!, teams) {
             Log.d(TAG, "tes teamsadapter")
-            ctx.startActivity<TeamDetailActivity>("id" to "${it.idTeam}", "teamName" to "${it.strTeam}")
+            ctx.startActivity<DetailTeamActivity>("id" to "${it.idTeam}", "teamName" to "${it.strTeam}")
         }
         recyclerListTeam.layoutManager = LinearLayoutManager(context)
         recyclerListTeam.adapter = adapter
