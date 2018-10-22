@@ -9,13 +9,8 @@ import android.view.ViewGroup
 
 import com.example.ghifar.footballmatch.R
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
 /**
- * A simple [Fragment] subclass.
+ * A simple [Fragment] subclass by alhudaghifari created on 22 Oct 2018.
  *
  */
 class FavoriteTeamFragment : Fragment() {

@@ -1,5 +1,6 @@
 package com.example.ghifar.footballmatch.view.activity
 
+import android.database.sqlite.SQLiteConstraintException
 import android.os.Build
 import android.os.Bundle
 import android.support.design.widget.TabLayout
@@ -20,12 +21,20 @@ import android.widget.TextView
 import android.widget.Toast
 import com.bumptech.glide.Glide
 import com.example.ghifar.footballmatch.R
+import com.example.ghifar.footballmatch.model.database.EventDb
+import com.example.ghifar.footballmatch.model.database.TeamDb
 import com.example.ghifar.footballmatch.model.datateammodel.Team
+import com.example.ghifar.footballmatch.presenter.database
 import com.example.ghifar.footballmatch.presenter.teams.TeamInterface
 import com.example.ghifar.footballmatch.presenter.teams.TeamPresenter
 import com.example.ghifar.footballmatch.view.fragment.OverviewTeamFragment
 import com.example.ghifar.footballmatch.view.fragment.PlayersFragment
 import kotlinx.android.synthetic.main.activity_team_detail.*
+import org.jetbrains.anko.db.classParser
+import org.jetbrains.anko.db.delete
+import org.jetbrains.anko.db.insert
+import org.jetbrains.anko.db.select
+import org.jetbrains.anko.design.snackbar
 
 class DetailTeamActivity : AppCompatActivity(), TeamInterface {
 
@@ -38,6 +47,12 @@ class DetailTeamActivity : AppCompatActivity(), TeamInterface {
     private lateinit var presenter: TeamPresenter
     private lateinit var id: String
     private var teamName: String = ""
+
+    private var items: List<Team> = mutableListOf()
+
+    private var menuItem: Menu? = null
+    private var isDataLoaded = false
+    private var isFavorite = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -57,15 +72,17 @@ class DetailTeamActivity : AppCompatActivity(), TeamInterface {
                     .getColor(this@DetailTeamActivity, R.color.blackandblue2)
         }
 
+        val intent = intent
+        id = intent.getStringExtra("id")
+        teamName = intent.getStringExtra("teamName")
+        favoriteState()
+
         myToolbar.setTitle("")
         myToolbar.setTitleTextColor(resources.getColor(R.color.white))
         setSupportActionBar(myToolbar)
 
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
-        val intent = intent
-        id = intent.getStringExtra("id")
-        teamName = intent.getStringExtra("teamName")
 
         presenter = TeamPresenter(this)
         presenter.getDetailTeam(id)
@@ -155,6 +172,8 @@ class DetailTeamActivity : AppCompatActivity(), TeamInterface {
         tvTeamName.text = data[0].strTeam
         tvYear.text = data[0].intFormedYear
         tvCity.text = data[0].strCountry
+        isDataLoaded = true
+        items = data
     }
 
     override fun showError(msg: String) {
@@ -163,11 +182,11 @@ class DetailTeamActivity : AppCompatActivity(), TeamInterface {
         ivRefresh.visibility = View.VISIBLE
     }
 
-    override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        // Inflate the menu to use in the action bar
-        val inflater = menuInflater
-        inflater.inflate(R.menu.favorite_menu, menu)
-        return super.onCreateOptionsMenu(menu)
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.favorite_menu, menu)
+        menuItem = menu
+        setFavorite()
+        return true
     }
 
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
@@ -175,10 +194,63 @@ class DetailTeamActivity : AppCompatActivity(), TeamInterface {
             finish()
             return true
         } else if (item?.itemId == R.id.add_to_favorite) {
+            if (!isDataLoaded) {
+                Toast.makeText(this, "loading..", Toast.LENGTH_SHORT).show()
+            } else {
+                if (isFavorite) removeFromFavorite() else addToFavorite()
 
+                isFavorite = !isFavorite
+                setFavorite()
+            }
             return true
         } else {
             return super.onOptionsItemSelected(item)
         }
+    }
+
+    // bagian db
+
+    private fun favoriteState() {
+        Log.d(TAG, "favoriteState | id : " + id)
+        database.use {
+            val result = select(TeamDb.TABLE_FAVORITE_TEAM)
+                    .whereArgs("(ID_TEAM = {id})",
+                            "id" to id)
+            val favorite = result.parseList(classParser<TeamDb>())
+            if (!favorite.isEmpty()) isFavorite = true
+        }
+    }
+
+    private fun addToFavorite() {
+        try {
+            database.use {
+                insert(TeamDb.TABLE_FAVORITE_TEAM,
+                        TeamDb.ID_TEAM to items[0].idTeam,
+                        TeamDb.STR_TEAM to items[0].strTeam,
+                        TeamDb.STR_TEAM_BADGE to items[0].strTeamBadge)
+            }
+            snackbar(coordinatorLayout, "Added to favorite").show()
+        } catch (e: SQLiteConstraintException){
+            snackbar(coordinatorLayout, e.localizedMessage).show()
+        }
+    }
+
+    private fun removeFromFavorite() {
+        try {
+            database.use {
+                delete(EventDb.TABLE_FAVORITE_MATCH, "(ID_TEAM = {id})",
+                        "id" to id)
+            }
+            snackbar(coordinatorLayout, "Removed to favorite").show()
+        } catch (e: SQLiteConstraintException){
+            snackbar(coordinatorLayout, e.localizedMessage).show()
+        }
+    }
+
+    private fun setFavorite() {
+        if (isFavorite)
+            menuItem?.getItem(0)?.icon = ContextCompat.getDrawable(this, R.drawable.ic_added_to_favorites)
+        else
+            menuItem?.getItem(0)?.icon = ContextCompat.getDrawable(this, R.drawable.ic_add_to_favorites)
     }
 }
