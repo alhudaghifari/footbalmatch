@@ -5,8 +5,10 @@ import android.content.Intent
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v4.widget.SwipeRefreshLayout
+import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
+import android.support.v7.widget.Toolbar
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -37,6 +39,7 @@ class FavoriteMatchFragment : Fragment() {
     private lateinit var swiperefresh: SwipeRefreshLayout
     private lateinit var adapter: MatchAdapter
     private lateinit var onArtikelClickListener: MatchAdapter.OnArtikelClickListener
+    private lateinit var myToolbar: Toolbar
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
@@ -45,6 +48,13 @@ class FavoriteMatchFragment : Fragment() {
 
         recyclerListTeam = v.findViewById(R.id.recyclerListTeam)
         swiperefresh = v.findViewById(R.id.swiperefresh)
+        myToolbar = v.findViewById(R.id.my_toolbar)
+
+        // setup toolbar
+        myToolbar.setBackgroundColor(resources.getColor(R.color.colorPrimary))
+        myToolbar.setTitleTextColor(resources.getColor(R.color.white))
+        myToolbar.setTitle(resources.getString(R.string.favorites))
+        (activity as AppCompatActivity).setSupportActionBar(myToolbar)
 
         listenerFunction()
         showFavorite()
