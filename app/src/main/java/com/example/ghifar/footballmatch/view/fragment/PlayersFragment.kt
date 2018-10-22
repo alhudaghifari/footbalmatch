@@ -1,6 +1,7 @@
 package com.example.ghifar.footballmatch.view.fragment
 
 
+import android.content.Intent
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v4.widget.SwipeRefreshLayout
@@ -16,6 +17,8 @@ import com.example.ghifar.footballmatch.model.playermodel.Player
 import com.example.ghifar.footballmatch.presenter.Constant
 import com.example.ghifar.footballmatch.presenter.player.PlayersInterface
 import com.example.ghifar.footballmatch.presenter.player.PlayersPresenter
+import com.example.ghifar.footballmatch.view.activity.DetailMatchActivity
+import com.example.ghifar.footballmatch.view.activity.PlayerDetailActivity
 import com.example.ghifar.footballmatch.view.adapter.PlayerAdapter
 
 /**
@@ -95,6 +98,9 @@ class PlayersFragment : Fragment(), PlayersInterface {
         onArtikelClickListener = object : PlayerAdapter.OnArtikelClickListener {
             override fun onClick(posisi: Int, model: Player) {
                 Log.d(TAG, "Player clicked on position : " + posisi)
+                val intent = Intent(context, PlayerDetailActivity::class.java)
+                intent.putExtra(Constant.ID, items[posisi].idPlayer)
+                startActivity(intent)
             }
         }
     }
