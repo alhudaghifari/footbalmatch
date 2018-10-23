@@ -21,7 +21,6 @@ import android.widget.TextView
 import android.widget.Toast
 import com.bumptech.glide.Glide
 import com.example.ghifar.footballmatch.R
-import com.example.ghifar.footballmatch.model.database.EventDb
 import com.example.ghifar.footballmatch.model.database.TeamDb
 import com.example.ghifar.footballmatch.model.datateammodel.Team
 import com.example.ghifar.footballmatch.presenter.database
@@ -238,7 +237,7 @@ class DetailTeamActivity : AppCompatActivity(), TeamInterface {
     private fun removeFromFavorite() {
         try {
             database.use {
-                delete(EventDb.TABLE_FAVORITE_MATCH, "(ID_TEAM = {id})",
+                delete(TeamDb.TABLE_FAVORITE_TEAM, "(ID_TEAM = {id})",
                         "id" to id)
             }
             snackbar(coordinatorLayout, "Removed to favorite").show()
