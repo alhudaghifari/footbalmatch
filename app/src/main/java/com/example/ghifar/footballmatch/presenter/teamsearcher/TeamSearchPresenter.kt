@@ -27,7 +27,7 @@ class TeamSearchPresenter(private val view: TeamSearchInterface) {
         disposable?.dispose()
     }
 
-    fun searchEventByName(teamName: String) {
+    fun searchTeamByName(teamName: String) {
         Log.d(TAG, "getDataLastMatch")
         view.showLoading()
         disposable = footballApiService.searchTeamsByName(teamName)
