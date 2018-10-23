@@ -3,7 +3,6 @@ package com.example.ghifar.footballmatch.view.adapter
 import android.content.Context
 import android.os.Handler
 import android.support.v7.widget.RecyclerView
-import android.text.format.Time
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -11,16 +10,10 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
-import com.bumptech.glide.Glide
-
 import com.example.ghifar.footballmatch.R
-import com.example.ghifar.footballmatch.R.id.ivLogoTimKanan
 import com.example.ghifar.footballmatch.model.eventleaguemodel.Event
 import com.example.ghifar.footballmatch.presenter.Constant
 import com.example.ghifar.footballmatch.presenter.Utils
-import kotlinx.android.synthetic.main.activity_detail_match.*
-import java.text.SimpleDateFormat
-import java.util.*
 
 /**
  * Created by Alhudaghifari on 1:34 17/09/18

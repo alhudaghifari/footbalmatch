@@ -1,6 +1,5 @@
 package com.example.ghifar.footballmatch.presenter.nextprev
 
-import android.util.Log
 import com.example.ghifar.footballmatch.presenter.ApiService
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.Disposable

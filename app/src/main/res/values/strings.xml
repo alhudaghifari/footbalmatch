@@ -2,7 +2,6 @@
     <string name="app_name">Football Match</string>
 
     <string name="favorites">Favorite</string>
-    <string name="favoritematch">Favorite Match</string>
     <string name="search">Search</string>
     <string name="refresh">Refresh</string>
 
@@ -12,8 +11,6 @@
     <string name="title_matches">Matches</string>
     <string name="title_overview">Overview</string>
     <string name="title_players">Players</string>
-
-    <string name="hello_blank_fragment">Hello blank fragment</string>
 
     <array name="league">
         <item>English Premier League</item>

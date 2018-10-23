@@ -1,19 +1,15 @@
 package com.example.ghifar.footballmatch.view.fragment
 
-import android.app.Activity.RESULT_OK
 import android.content.Intent
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v4.widget.SwipeRefreshLayout
-import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
-import android.support.v7.widget.Toolbar
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-
 import com.example.ghifar.footballmatch.R
 import com.example.ghifar.footballmatch.model.database.EventDb
 import com.example.ghifar.footballmatch.model.eventleaguemodel.Event

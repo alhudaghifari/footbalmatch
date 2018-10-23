@@ -1,6 +1,5 @@
 package com.example.ghifar.footballmatch.presenter.teams
 
-import com.example.ghifar.footballmatch.model.eventleaguemodel.EventLeagueModel
 import com.example.ghifar.footballmatch.presenter.ApiService
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.Disposable

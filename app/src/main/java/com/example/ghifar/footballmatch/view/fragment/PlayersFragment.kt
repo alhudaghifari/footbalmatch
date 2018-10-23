@@ -17,7 +17,6 @@ import com.example.ghifar.footballmatch.model.playermodel.Player
 import com.example.ghifar.footballmatch.presenter.Constant
 import com.example.ghifar.footballmatch.presenter.player.PlayersInterface
 import com.example.ghifar.footballmatch.presenter.player.PlayersPresenter
-import com.example.ghifar.footballmatch.view.activity.DetailMatchActivity
 import com.example.ghifar.footballmatch.view.activity.PlayerDetailActivity
 import com.example.ghifar.footballmatch.view.adapter.PlayerAdapter
 

@@ -3,6 +3,7 @@ package com.example.ghifar.footballmatch.view.fragment
 
 import android.content.Intent
 import android.os.Bundle
+import android.provider.CalendarContract
 import android.support.v4.app.Fragment
 import android.support.v4.widget.SwipeRefreshLayout
 import android.support.v7.widget.LinearLayoutManager
@@ -11,22 +12,18 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.AdapterView
+import android.widget.ArrayAdapter
+import android.widget.Spinner
 import android.widget.Toast
 import com.example.ghifar.footballmatch.R
 import com.example.ghifar.footballmatch.model.eventleaguemodel.Event
-import com.example.ghifar.footballmatch.presenter.*
+import com.example.ghifar.footballmatch.presenter.Constant
+import com.example.ghifar.footballmatch.presenter.Utils
 import com.example.ghifar.footballmatch.presenter.nextprev.DataMatchInterface
 import com.example.ghifar.footballmatch.presenter.nextprev.NextMatchPresenter
 import com.example.ghifar.footballmatch.view.activity.DetailMatchActivity
 import com.example.ghifar.footballmatch.view.adapter.MatchAdapter
-import android.content.ContentValues
-import android.app.Activity
-import android.content.Context
-import android.net.Uri
-import android.provider.CalendarContract
-import android.widget.AdapterView
-import android.widget.ArrayAdapter
-import android.widget.Spinner
 import org.jetbrains.anko.support.v4.ctx
 import java.util.*
 import java.util.concurrent.TimeUnit
