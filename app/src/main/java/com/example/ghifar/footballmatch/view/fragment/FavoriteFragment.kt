@@ -84,7 +84,7 @@ class FavoriteFragment : Fragment() {
 
             when (position) {
                 0 -> return FavoriteMatchFragment()
-                1 -> return PrevMatchFragment()
+                1 -> return FavoriteTeamFragment()
 
                 else -> return null
             }
