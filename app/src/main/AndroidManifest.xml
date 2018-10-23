@@ -29,8 +29,9 @@
             android:name=".view.activity.DetailMatchActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".view.activity.SearchActivity"
-            android:screenOrientation="portrait" />
+            android:name=".view.activity.EventSearchActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar"/>
         <activity
             android:name=".view.activity.DetailTeamActivity"
             android:screenOrientation="portrait"
