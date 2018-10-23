@@ -24,7 +24,6 @@ import com.example.ghifar.footballmatch.view.adapter.MatchAdapter
 class EventSearchActivity : AppCompatActivity(), EventSearchInterface {
 
     private val TAG = EventSearchActivity::class.java.simpleName
-    private var pageSelected = 0
     private lateinit var recyclerListTeam: RecyclerView
     private lateinit var swiperefresh: SwipeRefreshLayout
     private lateinit var adapter: MatchAdapter
@@ -49,9 +48,6 @@ class EventSearchActivity : AppCompatActivity(), EventSearchInterface {
         myToolbar.setTitleTextColor(resources.getColor(R.color.white))
         myToolbar.setTitle(resources.getString(R.string.title_matches))
         setSupportActionBar(myToolbar)
-
-        val intent = intent
-        pageSelected = intent.getIntExtra("pageSelected", 0)
 
         listenerFunction()
         presenter = EventSearchPresenter(this)
