@@ -7,6 +7,25 @@
     android:background="@color/silveryoung"
     tools:context=".view.fragment.NextMatchFragment">
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="52dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginLeft="4dp"
+        android:layout_marginRight="4dp"
+        android:elevation="4dp"
+        android:background="@drawable/rounded_full_white">
+
+        <Spinner
+            android:id="@+id/spinnerTeams"
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            android:layout_marginLeft="3dp"
+            android:layout_marginRight="3dp"
+            />
+
+    </RelativeLayout>
+
     <android.support.v4.widget.SwipeRefreshLayout
         android:id="@+id/swiperefresh"
         android:layout_width="match_parent"

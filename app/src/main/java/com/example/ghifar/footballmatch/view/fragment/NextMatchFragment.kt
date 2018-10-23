@@ -24,6 +24,10 @@ import android.app.Activity
 import android.content.Context
 import android.net.Uri
 import android.provider.CalendarContract
+import android.widget.AdapterView
+import android.widget.ArrayAdapter
+import android.widget.Spinner
+import org.jetbrains.anko.support.v4.ctx
 import java.util.*
 import java.util.concurrent.TimeUnit
 
@@ -38,6 +42,7 @@ class NextMatchFragment : Fragment(), DataMatchInterface {
 
     private var items: List<Event> = mutableListOf()
 
+    private lateinit var spinnerTeams: Spinner
     private lateinit var recyclerListTeam: RecyclerView
     private lateinit var swiperefresh: SwipeRefreshLayout
     private lateinit var adapter: MatchAdapter
@@ -54,6 +59,11 @@ class NextMatchFragment : Fragment(), DataMatchInterface {
 
         recyclerListTeam = v.findViewById(R.id.recyclerListTeam)
         swiperefresh = v.findViewById(R.id.swiperefresh)
+        spinnerTeams = v.findViewById(R.id.spinnerTeams)
+
+        val spinnerItems = resources.getStringArray(R.array.league)
+        val spinnerAdapter = ArrayAdapter(ctx, android.R.layout.simple_spinner_dropdown_item, spinnerItems)
+        spinnerTeams.adapter = spinnerAdapter
 
         presenter = NextMatchPresenter(this)
 
@@ -147,6 +157,18 @@ class NextMatchFragment : Fragment(), DataMatchInterface {
 
                 startActivity(intent)
             }
+        }
+
+        spinnerTeams.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(parent: AdapterView<*>, view: View, position: Int, id: Long) {
+                var leagueName = spinnerTeams.selectedItem.toString()
+                Log.d(TAG, "spinner leagueName : $leagueName")
+                var utils = Utils()
+                leagueId = utils.getIdLeague(leagueName)
+                presenter.getDataNextMatch(leagueId)
+            }
+
+            override fun onNothingSelected(parent: AdapterView<*>) {}
         }
     }
 
