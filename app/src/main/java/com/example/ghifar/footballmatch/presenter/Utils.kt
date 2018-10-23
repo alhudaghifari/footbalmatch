@@ -45,4 +45,16 @@ class Utils {
         return description
     }
 
+    fun getIdLeague(leagueName: String): String {
+        when(leagueName) {
+            "English Premier League" -> return "4328"
+            "English League Championship" -> return "4329"
+            "German Bundesliga" -> return "4331"
+            "Italian Serie A" -> return "4332"
+            "French Ligue 1" -> return "4334"
+            "Spanish La Liga" -> return "4335"
+        }
+        return ""
+    }
+
 }
