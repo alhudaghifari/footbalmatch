@@ -12,6 +12,7 @@ object Constant {
     const val PREVMATCH = 0
     const val NEXTMATCH = 1
     const val FAVMATCH = 2
+    const val SEARCHMATCH = 3
     const val ID = "idku"
     const val PICK_FAV_MATCH = 231
     const val PICK_FAV_TEAM = 312
