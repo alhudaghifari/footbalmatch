@@ -29,16 +29,20 @@
             android:name=".view.activity.DetailMatchActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".view.activity.EventSearchActivity"
+            android:name=".view.activity.SearchEventActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar"/>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".view.activity.DetailTeamActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".view.activity.PlayerDetailActivity"
+        <activity
+            android:name=".view.activity.PlayerDetailActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".view.activity.SearchTeamActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>
