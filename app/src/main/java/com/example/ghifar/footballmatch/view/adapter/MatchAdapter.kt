@@ -48,10 +48,22 @@ class MatchAdapter(internal var data: List<Event>, internal var context: Context
     override fun onBindViewHolder(holder: ArtikelViewHolder,
                                   position: Int) {
         val artikel = data[position]
-        val strTime = artikel.strTime?.substring(0, 8)
+        var strTime = artikel.strTime
+        var formattedClock = ""
+        var dateIndo = ""
 
-        val formattedClock = utils.getClock(strTime)
-        val dateIndo = utils.getDate(artikel.dateEvent)
+        if (strTime != null) {
+            Log.d(TAG, "strTime : ${artikel.strTime}")
+            if (strTime.length > 6) {
+                strTime = artikel.strTime?.substring(0, 8)
+                formattedClock = utils.getClock(strTime)
+            } else {
+                formattedClock = strTime
+            }
+        }
+
+        if (artikel.dateEvent != null)
+            dateIndo = utils.getDate(artikel.dateEvent)
 
         Log.d(TAG, "dateIndo : $dateIndo, $formattedClock")
 
@@ -69,6 +81,9 @@ class MatchAdapter(internal var data: List<Event>, internal var context: Context
             holder.ivLogoTimKiri.visibility = View.GONE
         } else if (type == Constant.NEXTMATCH) {
             holder.ivNotification.visibility = View.VISIBLE
+        } else if (type == Constant.SEARCHMATCH) {
+            if (artikel.intHomeScore == null)
+                holder.ivNotification.visibility = View.VISIBLE
         }
 
         holder.linlayItemScheduleMatch.setOnClickListener {
