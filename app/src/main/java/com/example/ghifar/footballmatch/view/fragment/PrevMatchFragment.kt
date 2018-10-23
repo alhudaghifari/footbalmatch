@@ -11,14 +11,19 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.AdapterView
+import android.widget.ArrayAdapter
+import android.widget.Spinner
 import android.widget.Toast
 import com.example.ghifar.footballmatch.R
 import com.example.ghifar.footballmatch.model.eventleaguemodel.Event
 import com.example.ghifar.footballmatch.presenter.Constant
+import com.example.ghifar.footballmatch.presenter.Utils
 import com.example.ghifar.footballmatch.presenter.nextprev.DataMatchInterface
 import com.example.ghifar.footballmatch.presenter.nextprev.PrevMatchPresenter
 import com.example.ghifar.footballmatch.view.activity.DetailMatchActivity
 import com.example.ghifar.footballmatch.view.adapter.MatchAdapter
+import org.jetbrains.anko.support.v4.ctx
 
 
 /**
@@ -31,6 +36,7 @@ class PrevMatchFragment : Fragment(), DataMatchInterface {
 
     private var items: List<Event> = mutableListOf()
 
+    private lateinit var spinnerTeams: Spinner
     private lateinit var recyclerListTeam: RecyclerView
     private lateinit var swiperefresh: SwipeRefreshLayout
     private lateinit var adapter: MatchAdapter
@@ -46,6 +52,11 @@ class PrevMatchFragment : Fragment(), DataMatchInterface {
 
         recyclerListTeam = v.findViewById(R.id.recyclerListTeam)
         swiperefresh = v.findViewById(R.id.swiperefresh)
+        spinnerTeams = v.findViewById(R.id.spinnerTeams)
+
+        val spinnerItems = resources.getStringArray(R.array.league)
+        val spinnerAdapter = ArrayAdapter(ctx, android.R.layout.simple_spinner_dropdown_item, spinnerItems)
+        spinnerTeams.adapter = spinnerAdapter
 
         presenter = PrevMatchPresenter(this)
 
@@ -107,6 +118,18 @@ class PrevMatchFragment : Fragment(), DataMatchInterface {
                 intent.putExtra(Constant.TIPEMATCH, Constant.PREVMATCH)
                 startActivity(intent)
             }
+        }
+
+        spinnerTeams.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(parent: AdapterView<*>, view: View, position: Int, id: Long) {
+                var leagueName = spinnerTeams.selectedItem.toString()
+                Log.d(TAG, "spinner leagueName : $leagueName")
+                var utils = Utils()
+                leagueId = utils.getIdLeague(leagueName)
+                presenter.getDataLastMatch(leagueId)
+            }
+
+            override fun onNothingSelected(parent: AdapterView<*>) {}
         }
     }
 }
