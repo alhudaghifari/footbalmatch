@@ -16,13 +16,13 @@ data class Team (
     var idSoccerXML: String? = null,
     @SerializedName("intLoved")
 
-    var intLoved: Any? = null,
+    var intLoved: String? = null,
     @SerializedName("strTeam")
 
     var strTeam: String? = null,
     @SerializedName("strTeamShort")
 
-    var strTeamShort: Any? = null,
+    var strTeamShort: String? = null,
     @SerializedName("strAlternate")
 
     var strAlternate: String? = null,
@@ -40,7 +40,7 @@ data class Team (
     var idLeague: String? = null,
     @SerializedName("strDivision")
 
-    var strDivision: Any? = null,
+    var strDivision: String? = null,
     @SerializedName("strManager")
 
     var strManager: String? = null,
@@ -82,46 +82,46 @@ data class Team (
     var strDescriptionEN: String? = null,
     @SerializedName("strDescriptionDE")
 
-    var strDescriptionDE: Any? = null,
+    var strDescriptionDE: String? = null,
     @SerializedName("strDescriptionFR")
 
-    var strDescriptionFR: Any? = null,
+    var strDescriptionFR: String? = null,
     @SerializedName("strDescriptionCN")
 
-    var strDescriptionCN: Any? = null,
+    var strDescriptionCN: String? = null,
     @SerializedName("strDescriptionIT")
 
-    var strDescriptionIT: Any? = null,
+    var strDescriptionIT: String? = null,
     @SerializedName("strDescriptionJP")
 
-    var strDescriptionJP: Any? = null,
+    var strDescriptionJP: String? = null,
     @SerializedName("strDescriptionRU")
 
-    var strDescriptionRU: Any? = null,
+    var strDescriptionRU: String? = null,
     @SerializedName("strDescriptionES")
 
-    var strDescriptionES: Any? = null,
+    var strDescriptionES: String? = null,
     @SerializedName("strDescriptionPT")
 
-    var strDescriptionPT: Any? = null,
+    var strDescriptionPT: String? = null,
     @SerializedName("strDescriptionSE")
 
-    var strDescriptionSE: Any? = null,
+    var strDescriptionSE: String? = null,
     @SerializedName("strDescriptionNL")
 
-    var strDescriptionNL: Any? = null,
+    var strDescriptionNL: String? = null,
     @SerializedName("strDescriptionHU")
 
-    var strDescriptionHU: Any? = null,
+    var strDescriptionHU: String? = null,
     @SerializedName("strDescriptionNO")
 
-    var strDescriptionNO: Any? = null,
+    var strDescriptionNO: String? = null,
     @SerializedName("strDescriptionIL")
 
-    var strDescriptionIL: Any? = null,
+    var strDescriptionIL: String? = null,
     @SerializedName("strDescriptionPL")
 
-    var strDescriptionPL: Any? = null,
+    var strDescriptionPL: String? = null,
     @SerializedName("strGender")
 
     var strGender: String? = null,
