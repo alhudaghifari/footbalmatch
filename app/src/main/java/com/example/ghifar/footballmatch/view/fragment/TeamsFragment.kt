@@ -19,6 +19,7 @@ import com.example.ghifar.footballmatch.model.datateammodel.Team
 import com.example.ghifar.footballmatch.presenter.teams.ListTeamsInterface
 import com.example.ghifar.footballmatch.presenter.teams.ListTeamsPresenter
 import com.example.ghifar.footballmatch.view.activity.DetailTeamActivity
+import com.example.ghifar.footballmatch.view.activity.SearchTeamActivity
 import com.example.ghifar.footballmatch.view.adapter.TeamsAdapter
 import org.jetbrains.anko.startActivity
 import org.jetbrains.anko.support.v4.ctx
@@ -77,7 +78,7 @@ class TeamsFragment : Fragment(), ListTeamsInterface {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             R.id.menu_search -> {
-
+                ctx.startActivity<SearchTeamActivity>()
                 true
             }
 
