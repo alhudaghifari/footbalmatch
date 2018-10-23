@@ -14,7 +14,7 @@ import android.support.v7.app.AppCompatActivity
 import android.util.Log
 import android.view.*
 import android.view.MenuInflater
-import com.example.ghifar.footballmatch.view.activity.EventSearchActivity
+import com.example.ghifar.footballmatch.view.activity.SearchEventActivity
 import org.jetbrains.anko.startActivity
 import org.jetbrains.anko.support.v4.ctx
 
@@ -103,7 +103,7 @@ class MatchFragment : Fragment() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             R.id.menu_search -> {
-                ctx.startActivity<EventSearchActivity>()
+                ctx.startActivity<SearchEventActivity>()
                 true
             }
 

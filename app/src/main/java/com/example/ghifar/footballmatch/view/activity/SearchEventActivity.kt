@@ -21,9 +21,9 @@ import com.example.ghifar.footballmatch.presenter.eventsearcher.EventSearchInter
 import com.example.ghifar.footballmatch.presenter.eventsearcher.EventSearchPresenter
 import com.example.ghifar.footballmatch.view.adapter.MatchAdapter
 
-class EventSearchActivity : AppCompatActivity(), EventSearchInterface {
+class SearchEventActivity : AppCompatActivity(), EventSearchInterface {
 
-    private val TAG = EventSearchActivity::class.java.simpleName
+    private val TAG = SearchEventActivity::class.java.simpleName
     private lateinit var recyclerListTeam: RecyclerView
     private lateinit var swiperefresh: SwipeRefreshLayout
     private lateinit var adapter: MatchAdapter
@@ -36,7 +36,7 @@ class EventSearchActivity : AppCompatActivity(), EventSearchInterface {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_search)
+        setContentView(R.layout.activity_search_event)
 
         val myToolbar = findViewById(R.id.my_toolbar) as Toolbar
         recyclerListTeam = findViewById(R.id.recyclerListTeam)
@@ -137,7 +137,7 @@ class EventSearchActivity : AppCompatActivity(), EventSearchInterface {
         onArtikelClickListener = object : MatchAdapter.OnArtikelClickListener {
             override fun onClick(posisi: Int, model: Event) {
                 Log.d(TAG, "clicked on position : $posisi")
-                val intent = Intent(this@EventSearchActivity, DetailMatchActivity::class.java)
+                val intent = Intent(this@SearchEventActivity, DetailMatchActivity::class.java)
                 intent.putExtra(Constant.ID, items.get(posisi).idEvent)
                 intent.putExtra(Constant.POSITION, posisi)
                 intent.putExtra(Constant.HOMETEAMNAME, items.get(posisi).idHomeTeam)
