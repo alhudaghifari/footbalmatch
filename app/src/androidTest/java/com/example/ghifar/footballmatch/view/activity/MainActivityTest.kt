@@ -172,7 +172,7 @@ class MainActivityTest {
     }
 
     @Test
-    fun testTeam() {
+    fun testTeamFavorite() {
         sleep(2000)
         onView(ViewMatchers.withId(R.id.navigation))
                 .check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
@@ -189,6 +189,32 @@ class MainActivityTest {
                 .check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
         onView(ViewMatchers.withId(R.id.add_to_favorite)).perform(ViewActions.click())
         onView(ViewMatchers.withText("Added to favorite"))
+                .check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
+        pressBack()
+
+        sleep(2000)
+        onView(ViewMatchers.withId(R.id.navigation))
+                .check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
+        onView(ViewMatchers.withId(R.id.navigation_favorites_match)).perform(ViewActions.click())
+
+        SystemClock.sleep(1000)
+        val matcher = allOf(ViewMatchers.withText("TEAMS"),
+                ViewMatchers.isDescendantOfA(withId(R.id.tabs)))
+        onView(matcher).perform(click())
+
+        sleep(3000)
+        onView(ViewMatchers.withText("Arsenal"))
+                .check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
+        onView(ViewMatchers.withText("Arsenal")).perform(ViewActions.click())
+
+        // hapus Tim dari dari daftar favorit
+        sleep(1000)
+        onView(ViewMatchers.withId(R.id.add_to_favorite))
+                .check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
+        sleep(1000)
+        onView(ViewMatchers.withId(R.id.add_to_favorite)).perform(ViewActions.click())
+        sleep(1000)
+        onView(ViewMatchers.withText("Removed to favorite"))
                 .check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
         pressBack()
     }
