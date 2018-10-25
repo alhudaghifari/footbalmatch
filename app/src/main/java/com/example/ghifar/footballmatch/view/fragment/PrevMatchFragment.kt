@@ -37,8 +37,8 @@ class PrevMatchFragment : Fragment(), DataMatchInterface {
     private var items: List<Event> = mutableListOf()
 
     private lateinit var spinnerTeams: Spinner
-    private lateinit var recyclerListTeam: RecyclerView
-    private lateinit var swiperefresh: SwipeRefreshLayout
+    private lateinit var recyclerPrevMatch: RecyclerView
+    private lateinit var swiperefreshPrevMatch: SwipeRefreshLayout
     private lateinit var adapter: MatchAdapter
     private lateinit var onArtikelClickListener: MatchAdapter.OnArtikelClickListener
     private lateinit var presenter: PrevMatchPresenter
@@ -50,8 +50,8 @@ class PrevMatchFragment : Fragment(), DataMatchInterface {
         val v = inflater.inflate(R.layout.fragment_prev_match, container,
                 false)
 
-        recyclerListTeam = v.findViewById(R.id.recyclerListTeam)
-        swiperefresh = v.findViewById(R.id.swiperefresh)
+        recyclerPrevMatch = v.findViewById(R.id.recyclerPrevMatch)
+        swiperefreshPrevMatch = v.findViewById(R.id.swiperefreshPrevMatch)
         spinnerTeams = v.findViewById(R.id.spinnerTeams)
 
         val spinnerItems = resources.getStringArray(R.array.league)
@@ -73,12 +73,12 @@ class PrevMatchFragment : Fragment(), DataMatchInterface {
 
     override fun showLoading() {
         Log.d(TAG, "showLoading")
-        swiperefresh.isRefreshing = true
+        swiperefreshPrevMatch.isRefreshing = true
     }
 
     override fun hideLoading() {
         Log.d(TAG, "hideLoading")
-        swiperefresh.isRefreshing = false
+        swiperefreshPrevMatch.isRefreshing = false
     }
 
     override fun showEventList(data: List<Event>) {
@@ -93,15 +93,15 @@ class PrevMatchFragment : Fragment(), DataMatchInterface {
     }
 
     private fun setRecyclerView() {
-        swiperefresh.isRefreshing = false
-        recyclerListTeam.layoutManager = LinearLayoutManager(context)
+        swiperefreshPrevMatch.isRefreshing = false
+        recyclerPrevMatch.layoutManager = LinearLayoutManager(context)
         adapter = MatchAdapter(items, context, Constant.PREVMATCH)
         adapter.setOnArtikelClickListener(onArtikelClickListener)
-        recyclerListTeam.adapter = adapter
+        recyclerPrevMatch.adapter = adapter
     }
 
     private fun listenerFunction() {
-        swiperefresh.setOnRefreshListener{
+        swiperefreshPrevMatch.setOnRefreshListener{
             Log.d(TAG, "onRefresh called from SwipeRefreshLayout")
             presenter.getDataLastMatch(leagueId)
         }

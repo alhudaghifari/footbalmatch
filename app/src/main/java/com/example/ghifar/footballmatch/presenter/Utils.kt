@@ -10,6 +10,9 @@ import java.util.*
  */
 class Utils {
 
+    /**
+     * method ini untuk mendapatkan waktu gmt + 7
+     */
     fun getClock(strTime: String?): String {
         // clock parser
         val clock = SimpleDateFormat("HH:mm:ss", Locale.ENGLISH)

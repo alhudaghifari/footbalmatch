@@ -115,7 +115,7 @@ class MainActivityTest {
 
         onView(ViewMatchers.withId(R.id.navigation))
                 .check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
-        onView(ViewMatchers.withId(R.id.navigation_next_match)).perform(ViewActions.click())
+        onView(ViewMatchers.withId(R.id.navigation_matches)).perform(ViewActions.click())
         onView(ViewMatchers.withId(R.id.recyclerListTeam))
                 .check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
         onView(ViewMatchers.withId(R.id.recyclerListTeam))
@@ -128,40 +128,22 @@ class MainActivityTest {
 
     @Test
     fun testFavoriteMatch() {
-        // cek apakah ada list dengan daftar pertandingan Man United
-        sleep(2000)
-        getDataLastMatch()
-        val team = eventLeagueModel.events[0].strHomeTeam
-        onView(ViewMatchers.withText(team))
-                .check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
-        onView(ViewMatchers.withText(team)).perform(ViewActions.click())
-
-        // tambahkan pertandingan Man United ke favorit
-        sleep(1000)
-        onView(ViewMatchers.withId(R.id.add_to_favorite))
-                .check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
-        onView(ViewMatchers.withId(R.id.add_to_favorite)).perform(ViewActions.click())
-        onView(ViewMatchers.withText("Added to favorite"))
-                .check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
-        pressBack()
-
-        // masuk ke halaman next match
-        onView(ViewMatchers.withId(R.id.navigation))
-                .check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
-        onView(ViewMatchers.withId(R.id.navigation_next_match)).perform(ViewActions.click())
-
-        // cek apakah ada pertandingan Tottenham
+        // cek pertandingan di index ke 1
         sleep(2000)
         getDataNextMatch()
-        val teamNext = eventLeagueModel.events[0].strHomeTeam
+        val INDEX = 1
+        // PERHATIAN
+        // TES MUNGKIN BISA GAGAL, UBAH INDEX UNTUK MENYESUAIKAN
+        val teamNext = eventLeagueModel.events[INDEX].strHomeTeam
         onView(ViewMatchers.withText(teamNext))
                 .check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
         onView(ViewMatchers.withText(teamNext)).perform(ViewActions.click())
 
-        // tambahkan pertandingan Tottenham ke favorit
+        // tambahkan pertandingan ke favorit
         sleep(1000)
         onView(ViewMatchers.withId(R.id.add_to_favorite))
                 .check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
+        sleep(2000)
         onView(ViewMatchers.withId(R.id.add_to_favorite)).perform(ViewActions.click())
         onView(ViewMatchers.withText("Added to favorite"))
                 .check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
@@ -172,18 +154,41 @@ class MainActivityTest {
                 .check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
         onView(ViewMatchers.withId(R.id.navigation_favorites_match)).perform(ViewActions.click())
 
-        // cek apakah ada pertandingan Tottenham di favorit
+        // cek apakah ada pertandingan "teamNext" di favorit
         sleep(2000)
         onView(ViewMatchers.withText(teamNext))
                 .check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
         onView(ViewMatchers.withText(teamNext)).perform(ViewActions.click())
 
-        // hapus pertandingan Tottenham dari dari daftar favorit
+        // hapus pertandingan dari dari daftar favorit
+        sleep(1000)
+        onView(ViewMatchers.withId(R.id.add_to_favorite))
+                .check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
+        sleep(2000)
+        onView(ViewMatchers.withId(R.id.add_to_favorite)).perform(ViewActions.click())
+        onView(ViewMatchers.withText("Removed to favorite"))
+                .check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
+        pressBack()
+    }
+
+    @Test
+    fun testTeam() {
+        sleep(2000)
+        onView(ViewMatchers.withId(R.id.navigation))
+                .check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
+        onView(ViewMatchers.withId(R.id.navigation_teams)).perform(ViewActions.click())
+
+        sleep(3000)
+        onView(ViewMatchers.withText("Arsenal"))
+                .check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
+        onView(ViewMatchers.withText("Arsenal")).perform(ViewActions.click())
+
+        // tambahkan team ke favorit
         sleep(1000)
         onView(ViewMatchers.withId(R.id.add_to_favorite))
                 .check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
         onView(ViewMatchers.withId(R.id.add_to_favorite)).perform(ViewActions.click())
-        onView(ViewMatchers.withText("Removed to favorite"))
+        onView(ViewMatchers.withText("Added to favorite"))
                 .check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
         pressBack()
     }

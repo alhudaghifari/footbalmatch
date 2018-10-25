@@ -27,12 +27,12 @@
     </RelativeLayout>
 
     <android.support.v4.widget.SwipeRefreshLayout
-        android:id="@+id/swiperefresh"
+        android:id="@+id/swiperefreshPrevMatch"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
         <android.support.v7.widget.RecyclerView
-            android:id="@+id/recyclerListTeam"
+            android:id="@+id/recyclerPrevMatch"
             android:background="@color/silveryoung"
             android:layout_width="match_parent"
             android:layout_height="match_parent"/>
