@@ -13,7 +13,7 @@ import com.example.ghifar.footballmatch.R.id.team_badge
 import com.example.ghifar.footballmatch.R.id.team_name
 import com.example.ghifar.footballmatch.model.datateammodel.Team
 import org.jetbrains.anko.*
-import org.jetbrains.anko.sdk25.coroutines.onClick
+import org.jetbrains.anko.sdk27.coroutines.onClick
 
 
 /**

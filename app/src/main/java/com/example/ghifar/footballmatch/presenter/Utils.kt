@@ -23,11 +23,11 @@ class Utils {
         return formattedClock
     }
 
-    fun getDate(date: String?): String {
+    fun getDate(dater: String?): String {
         // date parser
         val df = SimpleDateFormat("yyyy-MM-dd", Locale.ENGLISH)
         df.setTimeZone(TimeZone.getTimeZone("UTC"))
-        val date = df.parse(date)
+        val date = df.parse(dater)
         df.setTimeZone(TimeZone.getDefault())
         val daterr = SimpleDateFormat("yyyy-M-dd").parse(df.format(date))
         val dateIndo = SimpleDateFormat("EEE, dd MMM yyyy", Locale.ENGLISH).format(daterr)
@@ -35,14 +35,13 @@ class Utils {
     }
 
     fun getHtmlStringFormat(desc: String?): String {
-        var description = ""
         val styleOpening = "<html><body bgcolor=\"#e9e9e9\">" +
                 "<p style=\"" +
                 "line-height: 1.5;" +
                 "\" align=\"justify\">"
         val styleClosing = "</p></body></html>"
 
-        description = styleOpening
+        var description = styleOpening
         description += desc
         description += styleClosing
         return description

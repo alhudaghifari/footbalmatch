@@ -3,6 +3,7 @@ package com.example.ghifar.footballmatch.view.activity
 import android.database.sqlite.SQLiteConstraintException
 import android.os.Build
 import android.os.Bundle
+import android.provider.SyncStateContract.Helpers.insert
 import android.support.design.widget.TabLayout
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentManager
@@ -34,6 +35,7 @@ import org.jetbrains.anko.db.delete
 import org.jetbrains.anko.db.insert
 import org.jetbrains.anko.db.select
 import org.jetbrains.anko.design.snackbar
+import java.nio.file.Files.delete
 
 class DetailTeamActivity : AppCompatActivity(), TeamInterface {
 

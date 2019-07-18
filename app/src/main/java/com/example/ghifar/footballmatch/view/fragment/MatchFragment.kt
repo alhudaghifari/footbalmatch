@@ -7,13 +7,11 @@ import android.support.v4.app.FragmentManager
 import android.support.v4.app.FragmentStatePagerAdapter
 import android.support.v4.content.ContextCompat
 import android.support.v4.view.ViewPager
-import android.support.v7.widget.LinearLayoutManager
-import android.support.v7.widget.Toolbar
-import com.example.ghifar.footballmatch.R
 import android.support.v7.app.AppCompatActivity
+import android.support.v7.widget.LinearLayoutManager
 import android.util.Log
 import android.view.*
-import android.view.MenuInflater
+import com.example.ghifar.footballmatch.R
 import com.example.ghifar.footballmatch.view.activity.SearchEventActivity
 import org.jetbrains.anko.startActivity
 import org.jetbrains.anko.support.v4.ctx
@@ -21,7 +19,7 @@ import org.jetbrains.anko.support.v4.ctx
 /**
  * Created by alhudaghifari
  */
-class MatchFragment : Fragment() {
+class MatchFragment : android.support.v4.app.Fragment() {
 
     private val TAG = MatchFragment::class.java.simpleName
 
@@ -29,7 +27,7 @@ class MatchFragment : Fragment() {
                               savedInstanceState: Bundle?): View? {
         val v = inflater.inflate(R.layout.fragment_match, containerViewGroup,
                 false)
-        val myToolbar = v.findViewById(R.id.my_toolbar) as Toolbar
+        val myToolbar = v.findViewById(R.id.my_toolbar) as android.support.v7.widget.Toolbar
         val tabLayout = v.findViewById(R.id.tabs) as TabLayout
         val viewPager = v.findViewById(R.id.viewpager) as ViewPager
         val mLayoutManager = LinearLayoutManager(activity)
